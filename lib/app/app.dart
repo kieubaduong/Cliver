@@ -1,3 +1,4 @@
+
 import 'package:cliver_mobile/app/core/utils/localization_service.dart';
 import 'package:cliver_mobile/app/core/values/app_colors.dart';
 import 'package:cliver_mobile/app/features/setting/setting_controller.dart';
@@ -45,3 +46,4 @@ class _MyAppState extends State<MyApp> {
     );
   }
 }
+
