@@ -1,8 +1,6 @@
-import 'package:cliver_mobile/app/core/utils/size_config.dart';
-import 'package:cliver_mobile/app/core/values/app_colors.dart';
 import 'package:flutter/material.dart';
-
 import '../../../../common_widgets/loading_container.dart';
+import '../../../../core/core.dart';
 
 class PageImageAnimation extends StatefulWidget {
   const PageImageAnimation({Key? key}) : super(key: key);

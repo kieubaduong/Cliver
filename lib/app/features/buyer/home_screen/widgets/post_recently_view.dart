@@ -1,12 +1,8 @@
-import 'package:cliver_mobile/app/common_widgets/inkWell_wrapper.dart';
-import 'package:cliver_mobile/app/common_widgets/loading_container.dart';
-import 'package:cliver_mobile/app/core/utils/size_config.dart';
-import 'package:cliver_mobile/app/core/values/app_colors.dart';
-import 'package:cliver_mobile/app/features/buyer/home_screen/widgets/widgets.dart';
-import 'package:cliver_mobile/data/models/model.dart';
 import 'package:flutter/material.dart';
-
-import '../../../../core/utils/utils.dart';
+import '../../../../../data/models/model.dart';
+import '../../../../common_widgets/common_widgets.dart';
+import '../../../../core/core.dart';
+import '../../../features.dart';
 
 class PostRecentlyView extends StatefulWidget {
   const PostRecentlyView({Key? key, required this.postRecent, this.onChangedStatus, this.onTap, this.getPostsRecent}) : super(key: key);
@@ -92,8 +88,8 @@ class _PostRecentlyViewState extends State<PostRecentlyView> {
                         isScrollControlled: true,
                         context: context,
                         backgroundColor: AppColors.primaryWhite,
-                        shape: const RoundedRectangleBorder(
-                          borderRadius: BorderRadius.only(topLeft: Radius.circular(10), topRight: Radius.circular(10)),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: const BorderRadius.only(topLeft: Radius.circular(10), topRight: Radius.circular(10)),
                         ),
                         builder: (BuildContext context) {
                           return BottomSaveList(
