@@ -1,1 +1,1 @@
-const api_url = "https://cliver-api.azurewebsites.net/api";
+const api_url = "https://cliverapi.azurewebsites.net/api";
