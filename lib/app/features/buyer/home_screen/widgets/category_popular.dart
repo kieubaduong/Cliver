@@ -1,8 +1,7 @@
-import 'package:cliver_mobile/app/common_widgets/inkWell_wrapper.dart';
-import 'package:cliver_mobile/app/core/utils/size_config.dart';
-import 'package:cliver_mobile/app/core/values/app_colors.dart';
-import 'package:cliver_mobile/data/models/model.dart';
 import 'package:flutter/material.dart';
+import '../../../../../data/models/model.dart';
+import '../../../../common_widgets/common_widgets.dart';
+import '../../../../core/core.dart';
 class CategoryPopular extends StatefulWidget {
   const CategoryPopular({Key? key, required this.subCategory, this.onTap}) : super(key: key);
   final SubCategory subCategory;

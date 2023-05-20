@@ -1,11 +1,10 @@
-import 'package:cliver_mobile/app/common_widgets/inkWell_wrapper.dart';
-import 'package:cliver_mobile/app/core/utils/size_config.dart';
-import 'package:cliver_mobile/app/core/values/app_colors.dart';
-import 'package:cliver_mobile/data/models/model.dart';
-import 'package:cliver_mobile/data/services/SaveService.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:get/get.dart';
+import '../../../../../data/models/model.dart';
+import '../../../../../data/services/services.dart';
+import '../../../../common_widgets/common_widgets.dart';
+import '../../../../core/core.dart';
 
 class BottomSaveList extends StatefulWidget {
   const BottomSaveList({Key? key, this.icon, this.onTapChangeStatus, this.serviceId, this.sellerId}) : super(key: key);

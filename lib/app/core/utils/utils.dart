@@ -2,15 +2,15 @@ import 'dart:convert';
 import 'dart:io';
 import 'dart:math';
 import 'dart:developer' as dev;
-
-import 'package:cliver_mobile/app/core/utils/localization_service.dart';
-import 'package:cliver_mobile/app/core/values/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:timeago/timeago.dart' as timeago;
+
+import '../values/values.dart';
+import 'localization_service.dart';
 
 showLanguageDialog(BuildContext context) {
   showDialog(
