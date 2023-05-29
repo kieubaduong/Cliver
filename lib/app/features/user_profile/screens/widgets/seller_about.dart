@@ -1,11 +1,10 @@
-import 'package:cliver_mobile/app/common_widgets/inkWell_wrapper.dart';
-import 'package:cliver_mobile/app/core/utils/size_config.dart';
-import 'package:cliver_mobile/app/core/values/app_colors.dart';
-import 'package:cliver_mobile/app/features/bottom_navigation_bar/bottom_bar_controller.dart';
-import 'package:cliver_mobile/app/features/user_profile/screens/widgets/edit_profile.dart';
-import 'package:cliver_mobile/data/models/model.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+
+import '../../../../../data/models/model.dart';
+import '../../../../common_widgets/common_widgets.dart';
+import '../../../../core/core.dart';
+import '../../../features.dart';
 
 class SellerAbout extends StatefulWidget {
   const SellerAbout(

@@ -1,4 +1,4 @@
-import 'package:cliver_mobile/app/core/utils/utils.dart';
+import '../../../../core/core.dart';
 import 'package:flutter/material.dart';
 
 class myExpandedBar extends StatefulWidget {
@@ -13,7 +13,7 @@ class _myExpandedBarState extends State<myExpandedBar> {
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
-      decoration: const BoxDecoration(
+      decoration: BoxDecoration(
         color: Color(0xff2A2B2E),
         border: Border(
           top: BorderSide(width: 0.2, color: Colors.grey),

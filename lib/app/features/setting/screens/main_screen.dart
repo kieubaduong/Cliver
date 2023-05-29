@@ -1,20 +1,14 @@
 import 'dart:io';
-import 'package:cliver_mobile/app/controller/user_controller.dart';
-import 'package:cliver_mobile/app/core/utils/utils.dart';
-import 'package:cliver_mobile/app/core/values/app_colors.dart';
-import 'package:cliver_mobile/app/features/bottom_navigation_bar/bottom_bar_controller.dart';
-import 'package:cliver_mobile/app/features/chat/chat_controller.dart';
-import 'package:cliver_mobile/app/routes/routes.dart';
-import 'package:cliver_mobile/data/services/services.dart';
+import '../../../../data/services/services.dart';
+import '../../../core/core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import '../../app_credit/app_credit_screen.dart';
-import '../../buyer/my_request/main_screen.dart';
-import '../../seller/buyer_request/buyer_request_screen.dart';
-import '../../seller/verify_seller/verify_seller_screen.dart';
+import '../../../controller/controller.dart';
+import '../../../routes/routes.dart';
+import '../../features.dart';
 
 class ProfileSettingScreen extends StatefulWidget {
   const ProfileSettingScreen({Key? key}) : super(key: key);

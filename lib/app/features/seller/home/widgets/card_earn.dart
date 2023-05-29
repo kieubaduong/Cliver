@@ -1,16 +1,15 @@
-import 'package:cliver_mobile/app/core/utils/utils.dart';
-import 'package:cliver_mobile/app/core/values/app_colors.dart';
-import 'package:cliver_mobile/app/features/seller/earning/earning_controller.dart';
+import '../../../../core/core.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
+import '../../../features.dart';
 
 class cardEarn extends StatelessWidget {
   const cardEarn({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    final earningController = Get.find<EarningController>();
+    final earningController = Get.put(EarningController());
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [

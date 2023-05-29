@@ -1,4 +1,4 @@
-import 'package:cliver_mobile/app/core/utils/utils.dart';
+import '../../../../core/core.dart';
 import 'package:flutter/material.dart';
 
 class cardTodo extends StatelessWidget {
