@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
-
 import '../../data/models/model.dart';
 import '../core/core.dart';
 import '../features/bottom_navigation_bar/bottom_navigation_bar.dart';
