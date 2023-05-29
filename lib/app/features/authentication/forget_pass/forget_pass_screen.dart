@@ -1,6 +1,6 @@
-import 'package:cliver_mobile/app/common_widgets/custom_textfield.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import '../../../common_widgets/common_widgets.dart';
 import '../../../controller/auth/fotget_pass_controller.dart';
 
 class ForgetPassScreen extends StatefulWidget {

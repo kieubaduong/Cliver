@@ -1,10 +1,9 @@
-import 'package:cliver_mobile/app/core/utils/size_config.dart';
-import 'package:cliver_mobile/app/core/values/app_colors.dart';
-import 'package:cliver_mobile/app/features/buyer/search/widgets/search_user_result.dart';
-import 'package:cliver_mobile/app/features/buyer/search/widgets/widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import '../../../core/core.dart';
+import 'widgets/search_user_result.dart';
+import 'widgets/widgets.dart';
 
 class SearchPage extends StatefulWidget {
   const SearchPage({Key? key}) : super(key: key);

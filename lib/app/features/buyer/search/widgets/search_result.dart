@@ -1,16 +1,12 @@
-import 'package:cliver_mobile/app/common_widgets/inkWell_wrapper.dart';
-import 'package:cliver_mobile/app/common_widgets/loading_container.dart';
-import 'package:cliver_mobile/app/core/utils/size_config.dart';
-import 'package:cliver_mobile/app/core/values/app_colors.dart';
-import 'package:cliver_mobile/app/features/buyer/search/widgets/widgets.dart';
-import 'package:cliver_mobile/app/routes/routes.dart';
-import 'package:cliver_mobile/data/models/post.dart';
-import 'package:cliver_mobile/data/services/PostService.dart';
+import 'widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:get/get.dart';
-
-import '../../../../core/utils/utils.dart';
+import '../../../../../data/models/model.dart';
+import '../../../../../data/services/services.dart';
+import '../../../../common_widgets/common_widgets.dart';
+import '../../../../core/core.dart';
+import '../../../../routes/routes.dart';
 
 class SearchResult extends StatefulWidget {
   const SearchResult({Key? key, required this.result}) : super(key: key);

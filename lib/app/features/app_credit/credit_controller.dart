@@ -1,13 +1,11 @@
-import 'package:cliver_mobile/app/core/utils/utils.dart';
-import 'package:cliver_mobile/data/services/AuthService.dart';
+import '../../controller/controller.dart';
+import '../../core/core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:get/get.dart';
-
-import '../../../data/models/credit_history.dart';
-import '../../../data/services/CreditService.dart';
-import '../../controller/user_controller.dart';
-import '../payment/screens/webview_screen.dart';
+import '../../../data/models/model.dart';
+import '../../../data/services/services.dart';
+import '../features.dart';
 
 class CreditController extends GetxController {
   String amount = "";

@@ -1,9 +1,7 @@
-import 'package:cliver_mobile/app/core/utils/utils.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:intl/intl.dart';
-
 import '../../../../../data/models/order.dart';
+import '../../../../core/core.dart';
 
 class CardOrderDetail extends StatelessWidget {
   const CardOrderDetail(
@@ -13,7 +11,6 @@ class CardOrderDetail extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final oCcy = NumberFormat("#,##0", "vi_VN");
     return Card(
       child: ListTile(
         contentPadding: const EdgeInsets.all(8),
