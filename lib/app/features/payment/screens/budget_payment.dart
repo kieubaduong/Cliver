@@ -1,10 +1,8 @@
-import 'package:cliver_mobile/app/controller/user_controller.dart';
-import 'package:cliver_mobile/app/core/utils/utils.dart';
-import 'package:cliver_mobile/app/features/payment/payment_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
-import '../../../core/values/app_colors.dart';
+import '../../../controller/controller.dart';
+import '../../../core/core.dart';
+import '../../features.dart';
 
 class BudgetPayment extends StatefulWidget {
   const BudgetPayment({super.key});
