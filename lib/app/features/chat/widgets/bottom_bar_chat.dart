@@ -1,10 +1,7 @@
-import 'package:cliver_mobile/app/features/chat/chat_controller.dart';
-import 'package:cliver_mobile/app/core/utils/utils.dart';
-import 'package:cliver_mobile/app/features/chat/widgets/button_icon.dart';
+import '../../../core/core.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
-import '../../../core/values/app_colors.dart';
+import '../../features.dart';
 
 class BottomBarChat extends StatelessWidget {
   BottomBarChat({Key? key}) : super(key: key);

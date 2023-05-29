@@ -1,9 +1,8 @@
-import 'package:cliver_mobile/app/features/chat/chat_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
 import '../../../core/utils/utils.dart';
 import '../../../core/values/app_colors.dart';
+import '../../features.dart';
 
 class ChatActionDialog extends StatelessWidget {
   ChatActionDialog({

@@ -1,13 +1,8 @@
-import 'package:cliver_mobile/app/features/chat/chat_controller.dart';
-import 'package:cliver_mobile/app/core/utils/utils.dart';
-import 'package:cliver_mobile/app/features/chat/widgets/bottom_sheet_chat.dart';
-import 'package:cliver_mobile/app/features/chat/widgets/room_item.dart';
-import 'package:cliver_mobile/data/models/chat_filter.dart';
-import 'package:cliver_mobile/data/models/label_filter.dart';
+import '../../../core/core.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
-import '../../../core/values/app_colors.dart';
+import '../../../../data/models/model.dart';
+import '../../features.dart';
 
 class RoomScreen extends StatefulWidget {
   const RoomScreen({Key? key}) : super(key: key);
@@ -65,9 +60,9 @@ class _RoomScreenState extends State<RoomScreen> {
                     context: context,
                     isScrollControlled: true,
                     isDismissible: true,
-                    shape: const RoundedRectangleBorder(
+                    shape: RoundedRectangleBorder(
                         borderRadius:
-                            BorderRadius.vertical(top: Radius.circular(20))),
+                            BorderRadius.vertical(top: const Radius.circular(20))),
                     builder: (context) => DraggableScrollableSheet(
                       initialChildSize: 0.4,
                       maxChildSize: 0.5,
@@ -127,10 +122,10 @@ class _RoomScreenState extends State<RoomScreen> {
         bottomNavigationBar: Obx(() => Visibility(
               visible: chatController.isEditted.value,
               child: Container(
-                decoration: const BoxDecoration(
+                decoration: BoxDecoration(
                   color: Colors.white,
                   border: Border(
-                    top: BorderSide(
+                    top: const BorderSide(
                       color: Colors.grey,
                       width: 1,
                     ),

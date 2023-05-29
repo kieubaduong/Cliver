@@ -1,11 +1,8 @@
-import 'package:cliver_mobile/app/core/utils/utils.dart';
-import 'package:cliver_mobile/data/models/chat_filter.dart';
-import 'package:cliver_mobile/data/models/label_filter.dart';
+import '../../../core/core.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
+import '../../../../data/models/model.dart';
 import '../chat_controller.dart';
-import '../../../core/values/app_colors.dart';
 
 class BottomSheetChat extends StatefulWidget {
   const BottomSheetChat({
@@ -16,7 +13,6 @@ class BottomSheetChat extends StatefulWidget {
   }) : super(key: key);
   final ScrollController scrollController;
   final List<ChatFilter> listChatFilter;
-
   final List<LabelFilter> listLabel;
 
   @override
@@ -85,9 +81,9 @@ class _BottomSheetChatState extends State<BottomSheetChat> {
                             },
                             child: Container(
                               padding: const EdgeInsets.all(10),
-                              decoration: const BoxDecoration(
+                              decoration: BoxDecoration(
                                 border: Border(
-                                  bottom: BorderSide(
+                                  bottom: const BorderSide(
                                     width: 1,
                                     color: Colors.grey,
                                   ),
