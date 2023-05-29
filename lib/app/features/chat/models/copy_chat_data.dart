@@ -1,5 +1,5 @@
-import 'package:cliver_mobile/data/models/message.dart';
 import 'package:get/get.dart';
+import '../../../../data/models/model.dart';
 
 class CopyChatData {
   static final CopyChatData instance = CopyChatData._initInstance();

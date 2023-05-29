@@ -1,15 +1,8 @@
-import 'package:cliver_mobile/app/core/values/app_colors.dart';
-import 'package:cliver_mobile/app/features/chat/widgets/card_post.dart';
-import 'package:cliver_mobile/app/features/chat/widgets/image_attach_popup.dart';
-import 'package:cliver_mobile/app/features/chat/widgets/message_widget.dart';
-import 'package:cliver_mobile/data/models/message.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import '../chat_controller.dart';
-import '../widgets/app_bar_chat.dart';
-import '../widgets/arrow_scroll.dart';
-import '../widgets/bottom_bar_chat.dart';
-import '../widgets/chat_action_dialog.dart';
+import '../../../../data/models/model.dart';
+import '../../../core/core.dart';
+import '../../features.dart';
 
 class ChatScreen extends StatefulWidget {
   const ChatScreen({Key? key}) : super(key: key);
