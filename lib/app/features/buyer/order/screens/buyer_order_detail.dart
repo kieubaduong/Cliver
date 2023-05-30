@@ -1,10 +1,7 @@
-import 'package:cliver_mobile/app/features/buyer/order/buyer_order_controller.dart';
-import 'package:cliver_mobile/app/features/buyer/order/widgets/card_order_detail.dart';
-import 'package:cliver_mobile/app/features/buyer/order/widgets/buyer_order_timeline.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
 import '../../../../../data/models/order.dart';
+import '../../../features.dart';
 
 class BuyerOrderDetail extends StatefulWidget {
   const BuyerOrderDetail({Key? key}) : super(key: key);

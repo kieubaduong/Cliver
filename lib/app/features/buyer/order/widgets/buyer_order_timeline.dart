@@ -1,21 +1,15 @@
 import 'dart:developer';
-
-import 'package:cliver_mobile/app/features/buyer/order/buyer_order_controller.dart';
-import 'package:cliver_mobile/app/features/buyer/order/widgets/stepper_item.dart';
-import 'package:cliver_mobile/data/models/order.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
-
 import '../../../../../data/enums/review_type.dart';
 import '../../../../../data/enums/status.dart';
 import '../../../../../data/models/model.dart';
-import '../../../../../data/models/order_history.dart';
-import '../../../../../data/models/simple_post.dart';
 import '../../../../core/utils/utils.dart';
 import '../../../../core/values/app_colors.dart';
 import '../../../../routes/routes.dart';
+import '../../../features.dart';
 
 class BuyerOrderTimeline extends StatefulWidget {
   const BuyerOrderTimeline({super.key, required this.order});

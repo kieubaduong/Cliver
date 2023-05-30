@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
+import '../../../core/values/strings.dart';
+
 class WebviewScreen extends StatefulWidget {
   const WebviewScreen({Key? key, required this.initUrl}) : super(key: key);
   final String initUrl;
@@ -22,15 +24,15 @@ class _WebviewScreenState extends State<WebviewScreen> {
         onPageStarted: (url) {},
         onPageFinished: (url) {
           if (url.contains(
-              "https://cliver-api.azurewebsites.net/api/account/deposit/confirm")) {
+              "$api_url/account/deposit/confirm")) {
             Get.back(result: true);
           }
           if (url.contains(
-              "https://cliver-api.azurewebsites.net/api/payment/confirm")) {
+              "$api_url/payment/confirm")) {
             Get.back(result: true);
           }
           if (url.contains(
-              "https://cliver-api.azurewebsites.net/api/account/withdraw/confirm")) {
+              "$api_url/account/withdraw/confirm")) {
             Get.back(result: true);
           }
         },

@@ -1,23 +1,14 @@
 import 'dart:developer';
-
-import 'package:cliver_mobile/app/controller/user_controller.dart';
-import 'package:cliver_mobile/app/core/utils/utils.dart';
-import 'package:cliver_mobile/app/features/bottom_navigation_bar/bottom_bar_controller.dart';
-import 'package:cliver_mobile/app/features/buyer/order/buyer_order_controller.dart';
-import 'package:cliver_mobile/app/features/chat/chat_controller.dart';
-import 'package:cliver_mobile/app/features/payment/screens/webview_screen.dart';
-import 'package:cliver_mobile/data/models/create_order.dart';
-import 'package:cliver_mobile/data/models/model.dart';
-import 'package:cliver_mobile/data/services/ChatService.dart';
-import 'package:cliver_mobile/data/services/OrderService.dart';
-import 'package:cliver_mobile/data/services/PaymentService.dart';
+import '../../core/core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:get/get.dart';
-
 import '../../../data/enums/screen.dart';
-import '../../../data/models/order.dart';
+import '../../../data/models/model.dart';
+import '../../../data/services/services.dart';
+import '../../controller/controller.dart';
 import '../../routes/routes.dart';
+import '../features.dart';
 
 class PaymentController extends GetxController {
   int selectedPackage = 0;

@@ -1,13 +1,12 @@
 import 'dart:convert';
-import 'package:cliver_mobile/app/common_widgets/inkWell_wrapper.dart';
-import 'package:cliver_mobile/app/common_widgets/loading_container.dart';
-import 'package:cliver_mobile/app/core/utils/size_config.dart';
-import 'package:cliver_mobile/app/core/values/app_colors.dart';
-import 'package:cliver_mobile/app/routes/routes.dart';
-import 'package:cliver_mobile/data/models/model.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+
+import '../../../../../data/models/model.dart';
+import '../../../../common_widgets/common_widgets.dart';
+import '../../../../core/core.dart';
+import '../../../../routes/routes.dart';
 
 class SellerHistory extends StatefulWidget {
   const SellerHistory({Key? key, this.onTapValueHistory}) : super(key: key);

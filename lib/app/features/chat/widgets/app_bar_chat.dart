@@ -1,9 +1,6 @@
+import '../../../core/core.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
-import 'package:cliver_mobile/app/core/utils/utils.dart';
-
-import '../../../core/values/app_colors.dart';
 
 class AppBarChat extends StatelessWidget {
   final String username;

@@ -15,8 +15,7 @@ class GGFBBtn extends StatelessWidget {
             child: ElevatedButton(
               onPressed: () {},
               style: ElevatedButton.styleFrom(
-                elevation: 0,
-                primary: Colors.white,
+                elevation: 0, backgroundColor: Colors.white,
                 padding: const EdgeInsets.symmetric(vertical: 15),
               ),
               child: Row(
@@ -48,8 +47,7 @@ class GGFBBtn extends StatelessWidget {
             child: ElevatedButton(
               onPressed: () {},
               style: ElevatedButton.styleFrom(
-                elevation: 0,
-                primary: Color(int.parse("0xff1877f2")),
+                elevation: 0, backgroundColor: Color(int.parse("0xff1877f2")),
                 padding: const EdgeInsets.symmetric(vertical: 15),
               ),
               child: Row(

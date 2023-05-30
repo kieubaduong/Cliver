@@ -1,10 +1,9 @@
-import 'package:cliver_mobile/app/common_widgets/custom_textfield.dart';
-import 'package:cliver_mobile/app/core/values/app_colors.dart';
-import 'package:cliver_mobile/app/routes/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import '../../../common_widgets/common_widgets.dart';
 import '../../../controller/auth/login_controller.dart';
-import '../../../core/utils/utils.dart';
+import '../../../core/core.dart';
+import '../../../routes/routes.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({Key? key}) : super(key: key);

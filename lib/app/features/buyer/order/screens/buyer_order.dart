@@ -1,10 +1,9 @@
-import 'package:cliver_mobile/app/features/buyer/order/buyer_order_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
 import '../../../../../data/models/order.dart';
 import '../../../../common_widgets/horizontal_order_item.dart';
 import '../../../../routes/routes.dart';
+import '../../../features.dart';
 
 class BuyerOrderScreen extends StatefulWidget {
   const BuyerOrderScreen({Key? key}) : super(key: key);
@@ -87,9 +86,9 @@ class _BuyerOrderScreenState extends State<BuyerOrderScreen> {
   void showBottom() {
     showModalBottomSheet(
       context: context,
-      shape: const RoundedRectangleBorder(
+      shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.vertical(
-          top: Radius.circular(20),
+          top: const Radius.circular(20),
         ),
       ),
       builder: (context) {

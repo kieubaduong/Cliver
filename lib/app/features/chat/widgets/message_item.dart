@@ -1,7 +1,5 @@
-import 'package:cliver_mobile/app/core/utils/utils.dart';
+import '../../../core/core.dart';
 import 'package:flutter/material.dart';
-
-import '../../../core/values/app_colors.dart';
 
 class MessageItem extends StatelessWidget {
   const MessageItem({

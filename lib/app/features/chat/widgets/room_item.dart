@@ -1,16 +1,14 @@
-import 'package:cliver_mobile/app/features/chat/chat_controller.dart';
-import 'package:cliver_mobile/app/controller/user_controller.dart';
-import 'package:cliver_mobile/app/core/utils/utils.dart';
-import 'package:cliver_mobile/data/models/message.dart';
+import '../../../core/core.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
-
 import '../../../../data/enums/screen.dart';
-import '../../../core/values/app_colors.dart';
+import '../../../../data/models/model.dart';
+import '../../../controller/controller.dart';
 import '../../../routes/routes.dart';
+import '../../features.dart';
 
 class RoomItem extends StatelessWidget {
   RoomItem({
@@ -138,7 +136,7 @@ class RoomItem extends StatelessWidget {
                             onChanged: (value) {
                               chatController.listCheckBoxValue[index] = value!;
                             },
-                            shape: const CircleBorder(),
+                            shape: CircleBorder(),
                             fillColor:
                                 (!chatController.listCheckBoxValue[index])
                                     ? MaterialStateProperty.all(
@@ -269,7 +267,7 @@ class RoomItem extends StatelessWidget {
                           onChanged: (value) {
                             chatController.listCheckBoxValue[index] = value!;
                           },
-                          shape: const CircleBorder(),
+                          shape: CircleBorder(),
                           fillColor: (!chatController.listCheckBoxValue[index])
                               ? MaterialStateProperty.all(
                                   AppColors.lightGreyColor)

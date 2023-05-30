@@ -1,20 +1,16 @@
 import 'dart:developer';
-import 'package:cliver_mobile/app/controller/user_controller.dart';
-import 'package:cliver_mobile/app/core/utils/utils.dart';
-import 'package:cliver_mobile/app/features/chat/models/copy_chat_data.dart';
-import 'package:cliver_mobile/app/features/chat/models/reply_message_data.dart';
-import 'package:cliver_mobile/data/enums/custom_order_status.dart';
-import 'package:cliver_mobile/data/models/model.dart';
-import 'package:cliver_mobile/data/services/OrderService.dart';
-import 'package:cliver_mobile/data/services/services.dart';
+import '../../core/core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:get/get.dart';
-
-import '../../../data/enums/screen.dart';
+import '../../../data/enums/enums.dart';
+import '../../../data/models/model.dart';
+import '../../../data/services/services.dart';
+import '../../controller/controller.dart';
 import '../../routes/routes.dart';
+import '../features.dart';
 
 class ChatController extends GetxController {
   RxList<Room> rooms = <Room>[].obs;
@@ -36,6 +32,13 @@ class ChatController extends GetxController {
   Rx<int?> roomId = (-1).obs, hideTimeIndex = (-1).obs;
   RxString partnerId = "".obs;
   RxString partnerName = "".obs;
+  RxBool hideTime = true.obs,
+      hideArrow = true.obs,
+      isDisconnected = true.obs,
+      isShownDialog = false.obs;
+  final messageInput = TextEditingController().obs;
+  final scrollController = ScrollController().obs;
+  CopyChatData copyChatData = CopyChatData.instance;
   ReplyMessageData replyMessageData = ReplyMessageData.instance;
 
   //ui method in room_screen
@@ -50,6 +53,15 @@ class ChatController extends GetxController {
       clearCheckBox();
     }
     isEditted.value = !isEditted.value;
+  }
+
+  bool isOneBoxChecked() {
+    for (int i = 0; i < listCheckBoxValue.length; i++) {
+      if (listCheckBoxValue[i]) {
+        return true;
+      }
+    }
+    return false;
   }
 
   void clearCheckBox() {
@@ -118,6 +130,31 @@ class ChatController extends GetxController {
       await getRoom(roomId: roomId.value as int);
     }
     EasyLoading.dismiss();
+    scrollController.value.addListener(() {
+      if (scrollController.value.position.pixels ==
+          scrollController.value.position.maxScrollExtent) {
+        hideArrow.value = false;
+      } else {
+        hideArrow.value = true;
+      }
+    });
+  }
+
+  void showTimeSent(int index) {
+    if (hideTimeIndex.value == index) {
+      hideTime.value = !hideTime.value;
+    } else {
+      hideTime.value = false;
+    }
+
+    hideTimeIndex.value = index;
+    if (index == messages.length - 1) {
+      scrollToEnd();
+    }
+  }
+
+  void getCopyDialogPosition(TapDownDetails details) {
+    Offset tapPosition = details.globalPosition;
     copyChatData.tapX.value = tapPosition.dx;
     copyChatData.tapY.value = tapPosition.dy;
     isShownDialog.value = false;
@@ -225,6 +262,14 @@ class ChatController extends GetxController {
     if (messageInput.value.text.isNotEmpty) {
       int? repliedToMessageId;
       (replyMessageData.isReplied.value)
+          ? repliedToMessageId = replyMessageData.replyMessageId.value
+          : repliedToMessageId = null;
+      Message message = Message();
+      message.content = messageInput.value.text;
+      message.senderId = senderId;
+      message.repliedToMessageId = repliedToMessageId;
+      message.roomId = roomId.value;
+      message.relatedPost = post.value;
       message.createdAt = DateTime.now();
       if (repliedToMessageId == null) {
         for (var i = 0; i < messages.length; i++) {
@@ -261,6 +306,101 @@ class ChatController extends GetxController {
       messages[index].isLoading.value = false;
     }
     scrollToEnd();
+    SchedulerBinding.instance.addPostFrameCallback(
+      (_) => scrollToEnd(),
+    );
+  }
+
+  // custom order method
+  Future<bool> changeCustomOrderStatus(
+      {required int customOrderId, required CustomOrderStatus status}) async {
+    EasyLoading.show();
+    var res = await OrderService.ins.changeCustomOrderStatus(
+        customOrderId: customOrderId,
+        customOrderStatus: status.toString().substring(18));
+    EasyLoading.dismiss();
+    if (res!.isOk) {
+      return true;
+    } else {
+      await Get.defaultDialog(
+        title: "Error".tr,
+        content: Text(res.error),
+      );
+      return false;
+    }
+  }
+
+  Future<void> viewThisOffer({required int customOrderId}) async {
+    var res =
+        await OrderService.ins.getCustomOrder(customOrderId: customOrderId);
+    if (res!.isOk) {
+      Get.toNamed(buyerOrderDetailScreenRoute, arguments: [customOrderId]);
+    } else {
+      await Get.defaultDialog(
+        title: "Error".tr,
+        content: Text(res.error),
+      );
+    }
+  }
+
+  // api room_screen
+  Future<void> getAllRoom() async {
+    rooms.clear();
+    EasyLoading.show();
+    try {
+      ChatService.ins.getAllRooms()?.then(
+        (res) {
+          if (res.isOk) {
+            var listRoom = res.body['data'].map((json) => Room.fromJson(json));
+            rooms.value = List.from(listRoom);
+            listCheckBoxValue.value = List<bool>.filled(rooms.length, true);
+            getListLastMessage();
+            log("get rooms success");
+          } else {
+            Get.defaultDialog(
+              title: "Error",
+              content: Text(res.error),
+            );
+          }
+        },
+      );
+    } catch (e) {
+      log("get rooms failed: $e");
+      EasyLoading.dismiss();
+    }
+    EasyLoading.dismiss();
+  }
+
+  // api chat_screen
+  Future<void> getRoom({required int roomId}) async {
+    EasyLoading.show();
+    try {
+      var res = await ChatService.ins.getRoom(roomId: roomId)!;
+      EasyLoading.dismiss();
+      if (res.isOk) {
+        room.value = Room.fromJson(res.body['data'] as Map<String, dynamic>);
+        log("get room success: ${res.body['message']}");
+        messages.value = room.value!.messages!;
+        SchedulerBinding.instance.addPostFrameCallback(
+          (_) => scrollToEnd(),
+        );
+      } else {
+        Get.defaultDialog(
+          title: "Error".tr,
+          content: Text(res.error),
+        );
+      }
+    } catch (e) {
+      log("get room failed: $e");
+      Get.defaultDialog(
+        title: "Error".tr,
+        content: Text("Something went wrong".tr),
+      );
+      EasyLoading.dismiss();
+    }
+    // EasyLoading.dismiss();
+  }
+
   Future<void> getMessages({required String partnerId}) async {
     EasyLoading.show();
     try {

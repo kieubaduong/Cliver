@@ -1,10 +1,8 @@
 import 'dart:math' as math;
-import 'package:cliver_mobile/app/core/utils/utils.dart';
-import 'package:cliver_mobile/app/features/payment/payment_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
-import '../../../core/values/app_colors.dart';
+import '../../../core/core.dart';
+import '../../features.dart';
 
 class OrderDetails extends StatelessWidget {
   OrderDetails({super.key});
@@ -51,7 +49,7 @@ class OrderDetails extends StatelessWidget {
             () => Visibility(
               visible: !paymentController.isOrderDetailsClosed.value,
               child: SizedBox(
-                height: context.height * 0.07,
+                height: context.height * 0.08,
                 child: Row(
                   children: [
                     Align(

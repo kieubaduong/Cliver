@@ -1,7 +1,7 @@
-import 'package:cliver_mobile/app/features/chat/widgets/card_post.dart';
-import 'package:cliver_mobile/data/models/message.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import '../../../../data/models/model.dart';
+import '../../features.dart';
 
 class MessageRelatedPost extends StatelessWidget {
   const MessageRelatedPost(

@@ -1,15 +1,11 @@
-import 'package:cliver_mobile/app/features/bottom_navigation_bar/bottom_bar_controller.dart';
-import 'package:cliver_mobile/app/features/chat/chat_controller.dart';
-import 'package:cliver_mobile/app/routes/routes.dart';
-import 'package:cliver_mobile/data/enums/custom_order_status.dart';
-import 'package:cliver_mobile/data/models/custom_order.dart';
-import 'package:cliver_mobile/data/models/model.dart';
-import 'package:cliver_mobile/data/models/simple_post.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../../core/utils/utils.dart';
-import '../../../core/values/app_colors.dart';
+import '../../../../data/enums/enums.dart';
+import '../../../../data/models/model.dart';
+import '../../../core/core.dart';
+import '../../../routes/routes.dart';
+import '../../features.dart';
 
 class MessageCustomOrder extends StatefulWidget {
   const MessageCustomOrder({super.key, required this.message});

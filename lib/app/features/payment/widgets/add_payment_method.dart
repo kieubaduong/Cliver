@@ -36,7 +36,7 @@ class AddPaymentMethod extends StatelessWidget {
                       Transform.scale(
                         scale: 1.4,
                         child: Checkbox(
-                          shape: const CircleBorder(),
+                          shape: CircleBorder(),
                           fillColor:
                               MaterialStateProperty.all(AppColors.primaryColor),
                           value: paymentController.isYourBudget.value,
@@ -63,7 +63,7 @@ class AddPaymentMethod extends StatelessWidget {
                       Transform.scale(
                         scale: 1.4,
                         child: Checkbox(
-                          shape: const CircleBorder(),
+                          shape: CircleBorder(),
                           fillColor:
                               MaterialStateProperty.all(AppColors.primaryColor),
                           value: paymentController.isVNPay.value,

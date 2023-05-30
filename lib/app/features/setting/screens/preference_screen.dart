@@ -1,9 +1,8 @@
-import 'package:cliver_mobile/app/core/utils/utils.dart';
-import 'package:cliver_mobile/app/core/values/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import '../../../core/core.dart';
 import '../setting_controller.dart';
 
 class PreferencesSettingScreen extends StatefulWidget {

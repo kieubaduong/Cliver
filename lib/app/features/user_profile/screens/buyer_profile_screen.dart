@@ -1,13 +1,11 @@
-import 'package:cliver_mobile/app/core/utils/size_config.dart';
-import 'package:cliver_mobile/app/core/values/app_colors.dart';
-import 'package:cliver_mobile/app/features/user_profile/screens/widgets/seller_about.dart';
-import 'package:cliver_mobile/data/models/model.dart';
-import 'package:cliver_mobile/data/services/services.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:get/get.dart';
-import '../../../controller/user_controller.dart';
-import '../../seller/post/screens/post/review_user_screen.dart';
+import '../../../../data/models/model.dart';
+import '../../../../data/services/services.dart';
+import '../../../controller/controller.dart';
+import '../../../core/core.dart';
+import '../../features.dart';
 
 class BuyerProfileScreen extends StatefulWidget {
   const BuyerProfileScreen({Key? key}) : super(key: key);

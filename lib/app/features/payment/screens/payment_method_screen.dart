@@ -1,12 +1,8 @@
-import 'package:cliver_mobile/app/core/utils/utils.dart';
-import 'package:cliver_mobile/app/features/payment/payment_controller.dart';
-import 'package:cliver_mobile/app/features/payment/widgets/add_payment_method.dart';
-import 'package:cliver_mobile/app/features/payment/widgets/order_details.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
-
-import '../../../core/values/app_colors.dart';
+import '../../../core/core.dart';
+import '../../features.dart';
 
 class PaymentMethodScreen extends StatefulWidget {
   const PaymentMethodScreen({super.key});

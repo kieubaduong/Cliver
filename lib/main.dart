@@ -1,8 +1,4 @@
 import 'dart:developer';
-import 'package:cliver_mobile/app/core/utils/utils.dart';
-import 'package:cliver_mobile/data/models/user.dart';
-import 'package:cliver_mobile/data/models/wallet.dart';
-import 'package:cliver_mobile/data/services/AuthService.dart';
 import 'package:device_preview/device_preview.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
@@ -11,9 +7,10 @@ import 'package:get/get.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'app/app.dart';
 import 'app/controller/user_controller.dart';
-import 'app/core/utils/download_class.dart';
-import 'app/core/values/app_colors.dart';
+import 'app/core/core.dart';
 import 'app/features/setting/setting_controller.dart';
+import 'data/models/model.dart';
+import 'data/services/services.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();

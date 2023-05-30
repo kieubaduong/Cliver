@@ -1,10 +1,9 @@
-import 'package:cliver_mobile/app/features/authentication/forget_pass/enter_new_pass.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_verification_code/flutter_verification_code.dart';
 import 'package:get/get.dart';
-
 import '../../../controller/auth/fotget_pass_controller.dart';
 import '../../../core/values/app_colors.dart';
+import '../../features.dart';
 
 class VerifyEmailScreen extends StatefulWidget {
   const VerifyEmailScreen({Key? key}) : super(key: key);

@@ -1,15 +1,9 @@
-import 'package:cliver_mobile/app/common_widgets/circle_avatar_online.dart';
-import 'package:cliver_mobile/app/controller/user_controller.dart';
-import 'package:cliver_mobile/app/core/utils/utils.dart';
-import 'package:cliver_mobile/app/core/values/app_colors.dart';
-import 'package:cliver_mobile/app/features/seller/home/widgets/card_earn.dart';
-import 'package:cliver_mobile/app/features/seller/home/widgets/card_post.dart';
-import 'package:cliver_mobile/app/features/seller/home/widgets/custom_circular_progress_bar.dart';
-import 'package:cliver_mobile/app/features/seller/home/widgets/custom_expanded.dart';
+import '../../../core/core.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
-import '../earning/earning_controller.dart';
+import '../../../common_widgets/common_widgets.dart';
+import '../../../controller/controller.dart';
+import '../../features.dart';
 
 class SellerHome extends StatefulWidget {
   const SellerHome({Key? key}) : super(key: key);
@@ -20,7 +14,6 @@ class SellerHome extends StatefulWidget {
 
 class _SellerHomeState extends State<SellerHome> {
   final UserController _userController = Get.find();
-  final _earningController = Get.put(EarningController())..getEarningData();
 
   @override
   Widget build(BuildContext context) {
@@ -151,7 +144,7 @@ class _SellerHomeState extends State<SellerHome> {
                       ),
                     ),
                   ),
-                  CustomExpanded(),
+                  const CustomExpanded(),
                 ],
               ),
 
