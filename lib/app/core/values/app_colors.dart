@@ -79,6 +79,7 @@ class AppColors extends GetxController {
     textTheme: ThemeData.light().textTheme.apply(
           fontFamily: "SFProRounded",
         ),
+    bottomAppBarColor: backgroundColor,
     scaffoldBackgroundColor: const Color(0xffACAAA5).withOpacity(0.01),
     colorScheme: ColorScheme.light(primary: AppColors.primaryColor),
     hintColor: secondaryColor,
@@ -102,7 +103,7 @@ class AppColors extends GetxController {
     ),
     listTileTheme: const ListTileThemeData(
       iconColor: Color(0xff818383),
-    ), bottomAppBarTheme: BottomAppBarTheme(color: backgroundColor),
+    ),
   );
 
   //==========================================================================//
@@ -111,6 +112,7 @@ class AppColors extends GetxController {
     textTheme: ThemeData.dark().textTheme.apply(
           fontFamily: "SFProRounded",
         ),
+    bottomAppBarColor: backgroundColor,
     scaffoldBackgroundColor: Colors.black54,
     colorScheme: ColorScheme.light(primary: AppColors.primaryColor),
     hintColor: secondaryColor,
@@ -131,6 +133,6 @@ class AppColors extends GetxController {
     ),
     listTileTheme: const ListTileThemeData(
       iconColor: Color(0xff818383),
-    ), bottomAppBarTheme: BottomAppBarTheme(color: backgroundColor),
+    ),
   );
 }
