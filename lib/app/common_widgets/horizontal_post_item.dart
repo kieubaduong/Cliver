@@ -1,13 +1,16 @@
+import 'package:cliver_mobile/app/common_widgets/inkWell_wrapper.dart';
+import 'package:cliver_mobile/app/core/utils/size_config.dart';
+import 'package:cliver_mobile/app/core/utils/utils.dart';
+import 'package:cliver_mobile/app/core/values/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:get/get.dart';
 import '../../data/models/post.dart';
 import '../../data/services/services.dart';
-import '../core/core.dart';
 import '../features/seller/post/controller/post_controller.dart';
 import '../routes/routes.dart';
-import 'common_widgets.dart';
+import 'loading_container.dart';
 
 class HorizontalPostItem extends StatefulWidget {
   const HorizontalPostItem(
@@ -107,6 +110,8 @@ class _HorizontalPostItemState extends State<HorizontalPostItem> {
             child: InkWellWrapper(
               onTap: () async {
                 EasyLoading.show();
+                var res = await PostService.ins
+                    .deleteDraftPost(id: widget.thisPost.id!);
                 EasyLoading.dismiss();
                 widget.deleteDraft?.call();
               },
