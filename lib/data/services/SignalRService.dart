@@ -1,17 +1,20 @@
 import 'dart:developer';
+
+import 'package:cliver_mobile/app/controller/user_controller.dart';
+import 'package:cliver_mobile/data/models/create_message.dart';
+import 'package:cliver_mobile/data/models/message.dart';
+import 'package:cliver_mobile/data/services/NotificationService.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:get/get.dart';
 import 'package:logging/src/logger.dart';
 import 'package:signalr_netcore/signalr_client.dart' as signalr;
-import '../../app/controller/controller.dart';
+
 import '../../app/features/bottom_navigation_bar/bottom_bar_controller.dart';
 import '../../app/features/chat/chat_controller.dart';
 import '../enums/screen.dart';
-import '../models/model.dart';
-import 'services.dart';
 
 class SignalRService {
-  static const _chatURL = "https://cliverapi.azurewebsites.net/hubs/chat";
+  static const _chatURL = "https://cliver-api.azurewebsites.net/hubs/chat";
   static final SignalRService instance = SignalRService._initInstance();
   late signalr.HubConnection _hubConnection;
   final _chatController = Get.find<ChatController>();
@@ -72,9 +75,7 @@ class SignalRService {
                   _chatController.messages[i].id = receivedMessage.id;
                 }
               }
-              if(_chatController.senderId != receivedMessage.senderId) {
-                _chatController.messages.add(receivedMessage);
-              }
+              // _chatController.messages.add(receivedMessage);
               for (int i = 0; i < _chatController.rooms.length; i++) {
                 if (_chatController.rooms[i].id == receivedMessage.roomId) {
                   _chatController.rooms[i].lastMessage = receivedMessage;

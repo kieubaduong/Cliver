@@ -1,6 +1,8 @@
 import 'dart:convert';
+
+import 'package:cliver_mobile/app/core/values/strings.dart';
 import 'package:get/get_connect/connect.dart';
-import '../../app/core/core.dart';
+
 import '../models/user.dart';
 
 class AuthService extends GetConnect {
@@ -13,7 +15,7 @@ class AuthService extends GetConnect {
   Future<Response> login({
     required User user,
   }) async {
-    return await post("$api_url/auth/login",user.toJson());
+    return await post("$api_url/auth/login", jsonEncode(user));
   }
 
   Future<Response> signup({
