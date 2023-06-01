@@ -1,12 +1,12 @@
-import '../../core/core.dart';
+import 'package:cliver_mobile/app/controller/user_controller.dart';
+import 'package:cliver_mobile/app/core/utils/utils.dart';
+import 'package:cliver_mobile/app/routes/routes.dart';
+import 'package:cliver_mobile/data/models/model.dart';
+import 'package:cliver_mobile/data/services/AuthService.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:get/get.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import '../../../data/models/model.dart';
-import '../../../data/services/services.dart';
-import '../../routes/routes.dart';
-import '../controller.dart';
 
 class SignupController extends GetxController {
   final TextEditingController fullName = TextEditingController();
