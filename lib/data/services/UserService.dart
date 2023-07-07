@@ -1,7 +1,7 @@
-import 'package:cliver_mobile/app/controller/user_controller.dart';
-import 'package:cliver_mobile/app/core/values/strings.dart';
-import 'package:cliver_mobile/data/models/model.dart';
 import 'package:get/get.dart';
+import '../../app/controller/controller.dart';
+import '../../app/core/core.dart';
+import '../models/model.dart';
 
 class UserService extends GetConnect {
   UserService._initInstance();
@@ -71,6 +71,16 @@ class UserService extends GetConnect {
   Future<Response> getReviewStatisticById({required String id}) {
     return get(
       "$api_url/users/$id/reviews/statistic",
+      headers: <String, String>{
+        'Content-Type': 'application/json; charset=UTF-8',
+        'Authorization': userController.userToken,
+      },
+    );
+  }
+
+  Future<Response> getReviewSentimentsById({required String id}) {
+    return get(
+      "$api_url/users/$id/reviews/sentiments",
       headers: <String, String>{
         'Content-Type': 'application/json; charset=UTF-8',
         'Authorization': userController.userToken,

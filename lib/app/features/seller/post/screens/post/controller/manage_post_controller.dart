@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import '../../../../../../core/core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
@@ -11,7 +13,11 @@ class ManagePostController extends GetxController {
 
   getAllMyPost({String? postStatus}) async {
     EasyLoading.show();
-    myPostList.clear();
+    try{
+      myPostList.clear();
+    } catch (e) {
+      log(e.toString());
+    }
     Response? res;
     if (postStatus == null) {
       res = await PostService.ins.getMyPosts();

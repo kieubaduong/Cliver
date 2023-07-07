@@ -309,7 +309,7 @@ class _ProfileSettingScreenState extends State<ProfileSettingScreen> {
             size: iconSize,
           ),
           title: Text(
-            "Support".tr,
+            "Customer reviews".tr,
             style: const TextStyle(fontWeight: FontWeight.bold),
           ),
           trailing: const Icon(
@@ -317,7 +317,7 @@ class _ProfileSettingScreenState extends State<ProfileSettingScreen> {
             color: Color(0xff9395A4),
           ),
           onTap: () {
-            Get.toNamed(preferencesSettingScreenRoute);
+            Get.toNamed(customerReviewScreenRoute);
           },
         ),
         ListTile(

@@ -18,7 +18,9 @@ Review _$ReviewFromJson(Map<String, dynamic> json) => Review(
       createdAt: json['createdAt'] == null
           ? null
           : DateTime.parse(json['createdAt'] as String),
-    )..type = $enumDecodeNullable(_$ReviewTypeEnumMap, json['type']);
+    )
+      ..type = $enumDecodeNullable(_$ReviewTypeEnumMap, json['type'])
+      ..label = json['label'] as int?;
 
 Map<String, dynamic> _$ReviewToJson(Review instance) => <String, dynamic>{
       'id': instance.id,
@@ -29,6 +31,7 @@ Map<String, dynamic> _$ReviewToJson(Review instance) => <String, dynamic>{
       'type': _$ReviewTypeEnumMap[instance.type],
       'rating': instance.rating,
       'createdAt': instance.createdAt?.toIso8601String(),
+      'label': instance.label,
     };
 
 const _$ReviewTypeEnumMap = {

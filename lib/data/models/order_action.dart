@@ -1,9 +1,6 @@
 import 'package:json_annotation/json_annotation.dart';
-
-import 'package:cliver_mobile/data/models/create_resource.dart';
-
 import '../enums/action.dart';
-
+import 'model.dart';
 part 'order_action.g.dart';
 
 @JsonSerializable(explicitToJson: true)

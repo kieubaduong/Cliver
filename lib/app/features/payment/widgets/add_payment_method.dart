@@ -6,6 +6,7 @@ import '../payment_controller.dart';
 
 class AddPaymentMethod extends StatelessWidget {
   AddPaymentMethod({super.key});
+
   final paymentController = Get.find<PaymentController>();
 
   @override
@@ -50,11 +51,9 @@ class AddPaymentMethod extends StatelessWidget {
                           height: 30,
                           child: Image.asset("assets/images/wallet.png")),
                       const SizedBox(width: 10),
-                      const Expanded(
-                        child: Text(
-                          "Your budget",
-                          style: TextStyle(fontSize: 18, color: Colors.black),
-                        ),
+                      const Text(
+                        "Your budget",
+                        style: TextStyle(fontSize: 18, color: Colors.black),
                       ),
                     ],
                   ),
@@ -78,11 +77,9 @@ class AddPaymentMethod extends StatelessWidget {
                         child: Image.asset("assets/images/vnpay.png"),
                       ),
                       const SizedBox(width: 10),
-                      const Expanded(
-                        child: Text(
-                          "VNPAY",
-                          style: TextStyle(fontSize: 18, color: Colors.black),
-                        ),
+                      const Text(
+                        "VNPAY",
+                        style: TextStyle(fontSize: 18, color: Colors.black),
                       ),
                     ],
                   ),

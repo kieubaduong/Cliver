@@ -86,7 +86,7 @@ const Map<String, String> viLanguagePackage = {
   'switch_buyer': 'Chuyển sang chế độ người bán',
   "Preferences": "Tùy chọn",
   "General": "Chung",
-  "Support": "Hỗ trợ",
+  "Customer reviews": "Đánh giá của khách hàng",
   "Logout": "Đăng xuất",
   "In-app credit": "Ví của bạn",
   "My profile": "Hồ sơ",
@@ -278,4 +278,7 @@ const Map<String, String> viLanguagePackage = {
   "post": "bài đăng",
   "by": "bởi",
   "Lever 2 Seller": "Người bán cấp độ 2",
+  "Negative" : "Tiêu cực",
+  "Normal" : "Bình thường",
+  "Positive" : "Tích cực"
 };

@@ -220,12 +220,24 @@ class SellerOrderController extends GetxController {
     }
     EasyLoading.show();
     try {
+      var sentiment = await SentimentService.ins.getSentiment(text: reviewContent);
+      var review = Review();
+      if (sentiment.isOk) {
+        if (sentiment.body != null) {
+          sentiment.body.forEach((v) {
+            if (v != null) {
+              review = Review.fromJson(v);
+            }
+          });
+        }
+      }
       var res = await OrderService.ins.sellerReview(
         orderId: order.value.id as int,
         createReview: CreateReview(
           orderId: order.value.id,
           rating: rating,
-          comment: reviewContent,
+          comment: review.comment,
+          label: review.label
         ),
       );
       if (res.isOk) {

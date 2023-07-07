@@ -1,9 +1,9 @@
 import 'dart:developer';
 import 'dart:io';
-
-import 'package:cliver_mobile/app/controller/user_controller.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
+
+import '../../app/controller/controller.dart';
 
 class StorageService {
   StorageService._initInstance();
@@ -12,20 +12,14 @@ class StorageService {
 
   final _store = FirebaseStorage.instance;
 
-  uploadPostImages(List<File> listImg, int postId) async {
+  uploadPostImages(File listImg, int postId) async {
     try {
-      List<String> downloadUrls = [];
-
-      await Future.forEach(listImg, (File image) async {
         Reference ref =
-            _store.ref().child("post/${UserController().userToken}/$postId/");
-        final UploadTask uploadTask = ref.putFile(image);
-        final TaskSnapshot taskSnapshot = await uploadTask.whenComplete(() {});
+            _store.ref().child("post/${UserController().userToken}/$postId/${DateTime.now().microsecondsSinceEpoch}.jpg");
+        final UploadTask uploadTask = ref.putFile(listImg);
+        final TaskSnapshot taskSnapshot = await uploadTask.whenComplete(() => null);
         final url = await taskSnapshot.ref.getDownloadURL();
-        downloadUrls.add(url);
-      });
-
-      return downloadUrls;
+      return url;
     } catch (e) {
       EasyLoading.showToast(e.toString(), toastPosition: EasyLoadingToastPosition.bottom);
     }

@@ -1,3 +1,4 @@
+import 'package:cliver_sentiment/app/features/customer_reviews/customer_reviews_screen.dart';
 import 'package:get/get.dart';
 import '../features/features.dart';
 import 'routes.dart';
@@ -100,6 +101,14 @@ class AppPages {
     GetPage(
         name: editPostScreenRoute,
         page: () => const EditPostScreen(),
+        transition: Transition.rightToLeft),
+    GetPage(
+        name: customerReviewScreenRoute,
+        page: () => const CustomerReviewsScreen(),
+        transition: Transition.rightToLeft),
+    GetPage(
+        name: sellerPostHomeScreenRoute,
+        page: () => const SellerPostHomeScreen(),
         transition: Transition.rightToLeft),
   ];
 }

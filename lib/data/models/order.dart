@@ -1,9 +1,6 @@
 import 'package:json_annotation/json_annotation.dart';
-
-import 'package:cliver_mobile/data/enums/status.dart';
-import 'package:cliver_mobile/data/models/model.dart';
-import 'package:cliver_mobile/data/models/order_history.dart';
-
+import '../enums/enums.dart';
+import 'model.dart';
 part 'order.g.dart';
 
 @JsonSerializable(explicitToJson: true)

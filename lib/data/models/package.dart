@@ -1,7 +1,5 @@
 import 'package:json_annotation/json_annotation.dart';
-
-import 'package:cliver_mobile/data/models/simple_post.dart';
-
+import 'model.dart';
 part 'package.g.dart';
 
 @JsonSerializable()

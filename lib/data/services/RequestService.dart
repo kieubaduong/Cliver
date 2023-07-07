@@ -1,9 +1,7 @@
 import 'dart:convert';
-
-import 'package:cliver_mobile/app/core/values/strings.dart';
 import 'package:get/get.dart';
-
 import '../../app/controller/user_controller.dart';
+import '../../app/core/core.dart';
 import '../models/service_request.dart';
 
 class RequestService extends GetConnect {

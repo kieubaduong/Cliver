@@ -25,7 +25,7 @@ class AppColors extends GetxController {
   static Color scaffoldBackgroundColor = Colors.transparent;
 
   void changeColor(bool darkMode) {
-    if( darkMode == true ) {
+    if (darkMode == true) {
       primaryColor = const Color.fromARGB(255, 99, 199, 131);
       secondaryColor = const Color.fromRGBO(179, 178, 178, 1.0);
       backgroundColor = Colors.black;
@@ -47,8 +47,7 @@ class AppColors extends GetxController {
       greenCrayola = const Color(0xff1BBA85);
       rajah = const Color(0xffF3B357);
       scaffoldBackgroundColor = Colors.white.withOpacity(0.1);
-    }
-    else{
+    } else {
       primaryColor = const Color.fromRGBO(27, 186, 133, 1.0);
       secondaryColor = const Color.fromRGBO(179, 178, 178, 1.0);
       backgroundColor = const Color(0xffF3F5F6);
@@ -79,7 +78,6 @@ class AppColors extends GetxController {
     textTheme: ThemeData.light().textTheme.apply(
           fontFamily: "SFProRounded",
         ),
-    bottomAppBarColor: backgroundColor,
     scaffoldBackgroundColor: const Color(0xffACAAA5).withOpacity(0.01),
     colorScheme: ColorScheme.light(primary: AppColors.primaryColor),
     hintColor: secondaryColor,
@@ -104,6 +102,7 @@ class AppColors extends GetxController {
     listTileTheme: const ListTileThemeData(
       iconColor: Color(0xff818383),
     ),
+    bottomAppBarTheme: BottomAppBarTheme(color: backgroundColor),
   );
 
   //==========================================================================//
@@ -112,7 +111,6 @@ class AppColors extends GetxController {
     textTheme: ThemeData.dark().textTheme.apply(
           fontFamily: "SFProRounded",
         ),
-    bottomAppBarColor: backgroundColor,
     scaffoldBackgroundColor: Colors.black54,
     colorScheme: ColorScheme.light(primary: AppColors.primaryColor),
     hintColor: secondaryColor,
@@ -134,5 +132,6 @@ class AppColors extends GetxController {
     listTileTheme: const ListTileThemeData(
       iconColor: Color(0xff818383),
     ),
+    bottomAppBarTheme: BottomAppBarTheme(color: backgroundColor),
   );
 }

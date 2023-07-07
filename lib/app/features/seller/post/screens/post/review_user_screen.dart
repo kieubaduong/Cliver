@@ -33,7 +33,8 @@ class _UserReviewScreenState extends State<UserReviewScreen> {
       isGetData = false;
     });
     EasyLoading.show();
-    var res = await UserService.ins.getReviewById(id: _userController.currentUser.value.id!);
+    var res = await UserService.ins
+        .getReviewById(id: _userController.currentUser.value.id!);
     if (res.isOk) {
       if (res.body["data"] != null) {
         reviews = <Review>[];
@@ -44,7 +45,8 @@ class _UserReviewScreenState extends State<UserReviewScreen> {
         });
       }
     }
-    res = await UserService.ins.getReviewStatisticById(id: _userController.currentUser.value.id!);
+    res = await UserService.ins
+        .getReviewStatisticById(id: _userController.currentUser.value.id!);
     if (res.isOk) {
       if (res.body["data"] != null) {
         ratings = <Rating>[];
@@ -122,13 +124,10 @@ class _UserReviewScreenState extends State<UserReviewScreen> {
                                 children: [
                                   Container(
                                     height: 15,
-                                    width: 200,
-                                    decoration: BoxDecoration(borderRadius: BorderRadius.circular(15), color: AppColors.primaryWhite),
-                                  ),
-                                  Container(
-                                    height: 15,
-                                    width: 200 * ratings[index].count! / sumRating,
-                                    decoration: BoxDecoration(borderRadius: BorderRadius.circular(15), color: Colors.amber),
+                                    width: 180,
+                                    decoration: BoxDecoration(
+                                        borderRadius: BorderRadius.circular(15),
+                                        color: AppColors.primaryWhite),
                                   ),
                                 ],
                               ),

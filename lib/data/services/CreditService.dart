@@ -1,8 +1,7 @@
 import 'dart:convert';
-
-import 'package:cliver_mobile/app/controller/user_controller.dart';
-import 'package:cliver_mobile/app/core/values/strings.dart';
 import 'package:get/get.dart';
+import '../../app/controller/controller.dart';
+import '../../app/core/core.dart';
 
 class CreditService extends GetConnect {
   static final ins = CreditService._();

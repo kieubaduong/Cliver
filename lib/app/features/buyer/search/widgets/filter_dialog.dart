@@ -144,7 +144,7 @@ class _FilterDialogState extends State<FilterDialog> {
                   }
                 : null,
             margin: EdgeInsets.symmetric(
-                vertical: getHeight(15), horizontal: getWidth(10)),
+                vertical: getHeight(10), horizontal: getWidth(10)),
             paddingChild: EdgeInsets.symmetric(
                 vertical: getHeight(5), horizontal: getWidth(10)),
             child: Text(

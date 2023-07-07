@@ -1,6 +1,5 @@
 import 'package:json_annotation/json_annotation.dart';
-import 'package:cliver_mobile/data/models/wallet.dart';
-
+import 'model.dart';
 part 'user.g.dart';
 
 @JsonSerializable(explicitToJson: true)

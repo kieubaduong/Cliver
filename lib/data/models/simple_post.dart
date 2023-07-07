@@ -1,6 +1,5 @@
 import 'package:json_annotation/json_annotation.dart';
 
-import '../enums/status.dart';
 
 part 'simple_post.g.dart';
 
