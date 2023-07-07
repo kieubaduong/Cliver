@@ -4,10 +4,12 @@ class CreateReview {
   int? orderId;
   int? rating;
   String? comment;
+  int? label;
   CreateReview({
     this.orderId,
     this.rating,
     this.comment,
+    this.label,
   });
 
   Map<String, dynamic> toMap() {
@@ -15,6 +17,7 @@ class CreateReview {
       'orderId': orderId,
       'rating': rating,
       'comment': comment,
+      'label' : label,
     };
   }
 
@@ -23,6 +26,7 @@ class CreateReview {
       orderId: map['orderId']?.toInt(),
       rating: map['rating']?.toInt(),
       comment: map['comment'],
+      label: map['label']?.toInt()
     );
   }
 

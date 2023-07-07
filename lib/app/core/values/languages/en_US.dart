@@ -86,7 +86,7 @@ const Map<String, String> enLanguagePackage = {
   'switch_buyer': 'Switch to Buyer mode',
   "Preferences": "Preferences",
   "General": "General",
-  "Support": "Support",
+  "Customer reviews": "Customer reviews",
   "Logout": "Logout",
   "In-app credit": "In-app credit",
   "My profile": "My profile",
@@ -278,4 +278,7 @@ const Map<String, String> enLanguagePackage = {
   "post": "post",
   "by": "by",
   "Lever 2 Seller": "Lever 2 Seller",
+  "Negative" : "Negative",
+  "Normal" : "Normal",
+  "Positive" : "Positive"
 };

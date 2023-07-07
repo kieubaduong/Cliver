@@ -1,7 +1,7 @@
 import 'dart:developer';
-
-import 'package:cliver_mobile/data/models/user.dart';
 import 'package:get/get.dart';
+
+import '../../data/models/model.dart';
 
 class UserController extends GetxController {
   static UserController instance = Get.put(UserController());

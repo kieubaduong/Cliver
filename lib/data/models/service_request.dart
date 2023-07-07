@@ -1,9 +1,5 @@
 import 'package:json_annotation/json_annotation.dart';
-import 'package:cliver_mobile/data/models/user.dart';
-
-import 'category.dart';
-import 'sub_category.dart';
-
+import 'model.dart';
 part 'service_request.g.dart';
 
 @JsonSerializable(explicitToJson: true)

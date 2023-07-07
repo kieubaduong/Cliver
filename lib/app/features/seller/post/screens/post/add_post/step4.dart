@@ -7,7 +7,7 @@ import '../../../../../../../data/models/model.dart';
 import '../../../../../../../data/services/services.dart';
 import '../../../../../../core/core.dart';
 import '../../../../../../routes/routes.dart';
-import '../../../controller/post_controller.dart';
+import '../../../../../features.dart';
 
 class Step4 extends StatefulWidget {
   const Step4({Key? key}) : super(key: key);
@@ -19,14 +19,19 @@ class Step4 extends StatefulWidget {
 class _Step4State extends State<Step4> {
   final ImagePicker imgPicker = ImagePicker();
 
-  List<String> imageFileList = [];
+  List<File> imageFileList = [];
 
   final PostController _controller = Get.find();
 
   void selectMultiImages() async {
-    final List<XFile> selected = await imgPicker.pickMultiImage();
+    final List<XFile>? pickedImages = await imgPicker.pickMultiImage();
 
-    imageFileList.addAll(selected.map((e) => e.path).toList());
+    if (pickedImages != null) {
+      pickedImages.forEach((e) {
+        imageFileList.add(File(e.path));
+      });
+      setState(() {});
+    }
     if (imageFileList.length > 6) {
       imageFileList.removeRange(6, imageFileList.length);
     }
@@ -38,7 +43,7 @@ class _Step4State extends State<Step4> {
         await imgPicker.pickImage(source: ImageSource.gallery);
 
     if (selected != null) {
-      imageFileList[i] = selected.path;
+      imageFileList[i] = File(selected.path);
     }
     setState(() {});
   }
@@ -137,7 +142,7 @@ class _Step4State extends State<Step4> {
                                 children: [
                                   Image.file(
                                     width: context.screenSize.width * 0.75,
-                                    File(imageFileList[i]),
+                                    File(imageFileList[i].path),
                                     fit: BoxFit.cover,
                                   ),
                                   GestureDetector(
@@ -168,10 +173,13 @@ class _Step4State extends State<Step4> {
           onPressed: () async {
             if (imageFileList.isNotEmpty) {
               EasyLoading.show();
-              var listLink = await StorageService.ins.uploadPostImages(
-                  imageFileList.map((e) => File(e)).toList(),
-                  _controller.currentPost.id!);
-
+              List<String> listLink = [];
+              for (int i = 0; i < imageFileList.length; i++) {
+                String url = await StorageService.ins.uploadPostImages(
+                    imageFileList[i],
+                    _controller.currentPost.id!);
+                listLink.add(url);
+              }
               Post upPost = Post(
                 id: _controller.currentPost.id,
                 images: listLink,
@@ -183,7 +191,10 @@ class _Step4State extends State<Step4> {
               EasyLoading.dismiss();
               if (res.isOk) {
                 _controller.currentPost.id = null;
-                Get.offAllNamed(sellerProfileScreenRoute);
+                Get.delete<PostController>();
+                var bottomBarController = Get.find<BottomBarController>();
+                bottomBarController.currentIndex.value = 2;
+                Get.offAllNamed(myBottomBarRoute);
               } else {
                 EasyLoading.showToast(res.body["message"], toastPosition: EasyLoadingToastPosition.bottom);
               }

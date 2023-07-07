@@ -1,8 +1,6 @@
 import 'package:json_annotation/json_annotation.dart';
-
-import 'package:cliver_mobile/data/enums/review_type.dart';
-import 'package:cliver_mobile/data/models/model.dart';
-
+import '../enums/enums.dart';
+import 'model.dart';
 part 'review.g.dart';
 
 @JsonSerializable(explicitToJson: true)
@@ -15,6 +13,7 @@ class Review {
   ReviewType? type;
   int? rating;
   DateTime? createdAt;
+  int? label;
   Review({
     this.id,
     this.orderId,

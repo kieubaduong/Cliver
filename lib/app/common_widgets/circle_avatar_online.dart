@@ -1,6 +1,5 @@
-import 'package:cliver_mobile/app/core/utils/utils.dart';
-import 'package:cliver_mobile/app/core/values/app_colors.dart';
 import 'package:flutter/material.dart';
+import '../core/core.dart';
 
 class CustomCircleAvatar extends StatefulWidget {
   const CustomCircleAvatar({Key? key, required this.isOnline})

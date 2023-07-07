@@ -26,7 +26,7 @@ Message _$MessageFromJson(Map<String, dynamic> json) => Message(
       customPackage: json['customPackage'] == null
           ? null
           : CustomOrder.fromJson(json['customPackage'] as Map<String, dynamic>),
-    )..replyMessage = json['replyMessage'] as String?;
+    );
 
 Map<String, dynamic> _$MessageToJson(Message instance) => <String, dynamic>{
       'id': instance.id,
@@ -40,5 +40,4 @@ Map<String, dynamic> _$MessageToJson(Message instance) => <String, dynamic>{
       'createdAt': instance.createdAt?.toIso8601String(),
       'customPackageId': instance.customPackageId,
       'customPackage': instance.customPackage?.toJson(),
-      'replyMessage': instance.replyMessage,
     };

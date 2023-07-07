@@ -20,7 +20,7 @@ class EditStep4 extends StatefulWidget {
 class _EditStep4State extends State<EditStep4> {
   final ImagePicker imgPicker = ImagePicker();
 
-  List<String> imageFileList = [];
+  List<File> imageFileList = [];
 
   final PostController _controller = Get.find();
 
@@ -30,9 +30,14 @@ class _EditStep4State extends State<EditStep4> {
   }
 
   void selectMultiImages() async {
-    final List<XFile> selected = await imgPicker.pickMultiImage();
+    final List<XFile>? pickedImages = await imgPicker.pickMultiImage();
 
-    imageFileList.addAll(selected.map((e) => e.path).toList());
+    if (pickedImages != null) {
+      pickedImages.forEach((e) {
+        imageFileList.add(File(e.path));
+      });
+      setState(() {});
+    }
     if (imageFileList.length > 6) {
       imageFileList.removeRange(6, imageFileList.length);
     }
@@ -44,7 +49,7 @@ class _EditStep4State extends State<EditStep4> {
         await imgPicker.pickImage(source: ImageSource.gallery);
 
     if (selected != null) {
-      imageFileList[i] = selected.path;
+      imageFileList[i] = File(selected.path);
     }
     setState(() {});
   }
@@ -143,7 +148,7 @@ class _EditStep4State extends State<EditStep4> {
                                 children: [
                                   Image.file(
                                     width: context.screenSize.width * 0.75,
-                                    File(imageFileList[i]),
+                                    File(imageFileList[i].path),
                                     fit: BoxFit.cover,
                                   ),
                                   GestureDetector(
@@ -174,9 +179,13 @@ class _EditStep4State extends State<EditStep4> {
           onPressed: () async {
             if (imageFileList.isNotEmpty) {
               EasyLoading.show();
-              var listLink = await StorageService.ins.uploadPostImages(
-                  imageFileList.map((e) => File(e)).toList(),
-                  _controller.currentPost.id!);
+              List<String> listLink = [];
+              for (int i = 0; i < imageFileList.length; i++) {
+                String url = await StorageService.ins.uploadPostImages(
+                    imageFileList[i],
+                    _controller.currentPost.id!);
+                listLink.add(url);
+              }
               EasyLoading.dismiss();
               _controller.currentPost.images = listLink;
               _controller.currentPost.isPublish = true;
@@ -186,10 +195,13 @@ class _EditStep4State extends State<EditStep4> {
               EasyLoading.dismiss();
               if (res.isOk) {
                 Get.delete<PostController>();
-                Get.offAllNamed(sellerProfileScreenRoute);
+                var bottomBarController = Get.find<BottomBarController>();
+                bottomBarController.currentIndex.value = 2;
+                Get.offAllNamed(myBottomBarRoute);
               } else {
                 EasyLoading.showToast(res.error, toastPosition: EasyLoadingToastPosition.bottom);
               }
+              EasyLoading.dismiss();
             } else {
               EasyLoading.showToast('enterAllInformation'.tr, toastPosition: EasyLoadingToastPosition.bottom);
             }

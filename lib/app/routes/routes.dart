@@ -21,6 +21,7 @@ const String searchRoute = '/search_screen';
 const String saveListRoute = '/save_list_screen';
 const String saveListDetailRoute = '/save_list_detail_screen';
 const String editPostScreenRoute = "/seller/post/edit_post";
+const String customerReviewScreenRoute = "/customer_review_screen";
 
 //order route name
 const String paymentMethodRoute = '/seller/post/post_detail/payment_method';
@@ -28,5 +29,5 @@ const String budgetPaymentRoute = '/seller/post/post_detail/payment_method/budge
 const String vnpayPaymentRoute = '/seller/post/post_detail/payment_method/vnpay_payment';
 const String buyerOrderDetailScreenRoute = "/buyer/order/buyer_order_detail";
 const String sellerOrderDetailScreenRoute = "/buyer/order/seller_order_detail";
-
+const String sellerPostHomeScreenRoute = "/seller/post/screens/main_screen.dart";
 const String customOrderScreenRoute = '/custom_order_screen';
